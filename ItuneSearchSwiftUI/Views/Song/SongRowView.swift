@@ -27,10 +27,7 @@ struct SongRowView: View {
             
             Spacer(minLength: 20)
             
-            BuySongButton(urlString: song.previewURL,
-                          price: song.trackPrice,
-                          currency: song.currency)
-            
+            BuySongButton(urlString: song.previewURL, price: song.trackPrice, currency: song.currency)            
         }
     }
 }

@@ -62,7 +62,7 @@ class AlbumListViewModel: ObservableObject {
                     //print("fetched albums \(results.resultCount)")
                 case .failure(let error):
                     //print("error loading albums: \(error)")
-                    self?.state = .error("Could not load: \(error.localizedDescription)")
+                    self?.state = .error("\(AppConstents.loadError) \(error.localizedDescription)")
                 }
             }
         }

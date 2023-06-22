@@ -15,11 +15,9 @@ struct BuySongButton: View {
     
     var body: some View {
         if let price = price {
-            BuyButton(urlString: urlString,
-                      price: price,
-                      currency: currency)
+            BuyButton(urlString: urlString, price: price, currency: currency)
         } else {
-            Text("ALBUM ONLY")
+            Text(AppConstents.albumOnly)
                 .font(.footnote)
                 .foregroundColor(.gray)
         }
@@ -43,10 +41,7 @@ struct BuyButton: View {
     }
     
     func formattedPrice() -> String? {
-        
-        guard let price = price else {
-            return nil
-        }
+        guard let price = price else { return nil }
         
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
@@ -59,9 +54,7 @@ struct BuyButton: View {
 
 struct BuyButton_Previews: PreviewProvider {
     static var previews: some View {
-        
         let example = Album.example()
-        
         return BuyButton(urlString: example.collectionViewURL,
                          price: example.collectionPrice,
                          currency: example.currency)

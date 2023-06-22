@@ -18,7 +18,7 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Picker("Select the media", selection: $selectedEntityType) {
+                Picker(AppConstents.selectTheMedia, selection: $selectedEntityType) {
                     ForEach(EntityType.allCases) { type in
                         Text(type.name())
                             .tag(type)
@@ -61,10 +61,9 @@ struct SearchView: View {
                             }
                     }
                 }
-                
             }
             .searchable(text: $searchTerm)
-            .navigationTitle("Search")
+            .navigationTitle(AppConstents.search)
             .navigationBarTitleDisplayMode(.inline)
         }
         .onChange(of: searchTerm) { newValue in
@@ -84,7 +83,6 @@ struct SearchView: View {
                 movieListViewModel.searchTerm = newValue
             }
         }
-        
     }
 }
 

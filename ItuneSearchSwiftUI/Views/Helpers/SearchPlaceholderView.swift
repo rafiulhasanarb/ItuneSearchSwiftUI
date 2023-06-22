@@ -15,7 +15,7 @@ struct SearchPlaceholderView: View {
     var body: some View {
         VStack(spacing: 20) {
             
-            Text("Trending")
+            Text(AppConstents.trending)
                 .font(.title)
             ForEach(suggestions, id: \.self) { text in
                 Button {

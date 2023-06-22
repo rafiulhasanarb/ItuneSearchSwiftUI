@@ -20,13 +20,13 @@ enum EntityType: String, Identifiable, CaseIterable {
     func name() -> String {
         switch self {
         case .all:
-            return "All"
+            return AppConstents.all
         case .album:
-            return "Albums"
+            return AppConstents.album
         case .song:
-            return "Songs"
+            return AppConstents.songs
         case .movie:
-            return "Movies"
+            return AppConstents.movie
         }
     }
 }

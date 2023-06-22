@@ -18,28 +18,28 @@ enum APIError: Error, CustomStringConvertible {
     var description: String {
         switch self {
         case .badURL:
-            return "badURL"
+            return AppConstents.baseURL
         case .urlSession(let error):
-            return "url session error: \(error.debugDescription)"
+            return "\(AppConstents.urlSessionError): \(error.debugDescription)"
         case .badResponse(let statusCode):
-            return "bad response wth status code: \(statusCode)"
+            return "\(AppConstents.bedResponse): \(statusCode)"
         case .decoding(let decodingError):
-            return "decoding error: \(String(describing: decodingError))"
+            return "\(AppConstents.decodingError): \(String(describing: decodingError))"
         case .unknown:
-            return "unknown error"
+            return AppConstents.unknownError
         }
     }
     
     var localizedDescription: String {
         switch self {
         case .badURL, .unknown:
-            return "Something went wrong"
+            return AppConstents.somethingWentWrong
         case .urlSession(let urlError):
-            return urlError?.localizedDescription ?? "Something went wrong"
+            return urlError?.localizedDescription ?? AppConstents.somethingWentWrong
         case .badResponse(_):
-            return "Something went wrong"
+            return AppConstents.somethingWentWrong
         case .decoding(let decodingError):
-            return decodingError?.localizedDescription ?? "Something went wrong"
+            return decodingError?.localizedDescription ?? AppConstents.somethingWentWrong
         }
     }
 }

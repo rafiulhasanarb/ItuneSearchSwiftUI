@@ -17,7 +17,7 @@ class SongsForAlbumListViewModel: ObservableObject {
     
     init(albumID: Int) {
         self.albumID = albumID
-        print("init for songs for album \(albumID)")
+        //print("init for songs for album \(albumID)")
     }
     
     func fetch() {

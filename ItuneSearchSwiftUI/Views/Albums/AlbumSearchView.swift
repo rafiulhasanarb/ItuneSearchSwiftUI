@@ -12,8 +12,7 @@ struct AlbumSearchView: View {
     @StateObject var viewModel = AlbumListViewModel()
     
     var body: some View {
-        NavigationView {
-            
+        NavigationView {            
             Group {
                 if viewModel.searchTerm.isEmpty {
                     SearchPlaceholderView(searchTerm: $viewModel.searchTerm)

@@ -20,14 +20,12 @@ struct AlbumListView: View {
                 } label: {
                     AlbumRowView(album: album)
                 }
-
             }
             
             ListPlaceholderRowView(state: viewModel.state,
                                    loadMore: viewModel.loadMore)
         }
         .listStyle(.plain)
-        
     }
 }
 

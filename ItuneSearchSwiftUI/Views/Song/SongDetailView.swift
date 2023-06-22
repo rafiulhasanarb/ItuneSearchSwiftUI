@@ -21,9 +21,7 @@ struct SongDetailView: View {
     }
     
     var body: some View {
-        
         VStack(spacing: 0) {
-            
             if let album = albumsViewModel.album {
                 AlbumHeaderDetailView(album: album)
                 
@@ -32,11 +30,10 @@ struct SongDetailView: View {
                     .progressViewStyle(.circular)
             }
             
-             Divider()
+            Divider()
             
             SongsForAlbumListView(songsViewModel: songsViewModel,
                                   selectedSong: song)
-            
         }
         .onAppear {
             songsViewModel.fetch()

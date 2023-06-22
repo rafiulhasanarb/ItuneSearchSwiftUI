@@ -59,15 +59,14 @@ class APIService {
     }
     
     func createURL(for searchTerm: String, type: EntityType, page: Int?, limit: Int?) -> URL? {
-        // https://itunes.apple.com/search?term=jack+johnson&entity=album&limit=5&offset=10
-        let baseURL = "https://itunes.apple.com/search"
-        var queryItems = [URLQueryItem(name: "term", value: searchTerm),
-                          URLQueryItem(name: "entity", value: type.rawValue)]
+        let baseURL = AppConstents.searchURL
+        var queryItems = [URLQueryItem(name: AppConstents.term, value: searchTerm),
+                          URLQueryItem(name: AppConstents.entity, value: type.rawValue)]
         
         if let page = page, let limit = limit {
             let offset = page * limit
-            queryItems.append(URLQueryItem(name: "limit", value: String(limit)))
-            queryItems.append(URLQueryItem(name: "offset", value: String(offset)))
+            queryItems.append(URLQueryItem(name: AppConstents.limit, value: String(limit)))
+            queryItems.append(URLQueryItem(name: AppConstents.offset, value: String(offset)))
         }
         
         var components = URLComponents(string: baseURL)
@@ -75,11 +74,10 @@ class APIService {
         return components?.url
     }
     
-    // https://itunes.apple.com/lookup?id=909253&entity=song
     func createURL(for id: Int,type: EntityType) -> URL? {
-        let baseURL = "https://itunes.apple.com/lookup"
-        var queryItems = [URLQueryItem(name: "id", value: String(id)),
-                          URLQueryItem(name: "entity", value: type.rawValue)]
+        let baseURL = AppConstents.lookupURL
+        var queryItems = [URLQueryItem(name: AppConstents.id, value: String(id)),
+                          URLQueryItem(name: AppConstents.entity, value: type.rawValue)]
         
         var components = URLComponents(string: baseURL)
         components?.queryItems = queryItems

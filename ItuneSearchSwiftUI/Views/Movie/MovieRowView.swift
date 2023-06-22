@@ -26,9 +26,7 @@ struct MovieRowView: View {
             
             Spacer(minLength: 20)
           
-            BuyButton(urlString: movie.previewURL ?? "",
-                      price: movie.trackPrice,
-                      currency: movie.currency)
+            BuyButton(urlString: movie.previewURL ?? "", price: movie.trackPrice, currency: movie.currency)
         }
     }
 }

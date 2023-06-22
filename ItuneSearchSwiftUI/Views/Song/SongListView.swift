@@ -25,8 +25,7 @@ struct SongListView: View {
             ListPlaceholderRowView(state: viewModel.state,
                                    loadMore: viewModel.loadMore)
         }
-        .listStyle(.plain)
-        
+        .listStyle(.plain)        
     }
 }
 

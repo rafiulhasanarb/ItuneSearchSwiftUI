@@ -18,7 +18,7 @@ struct SearchAllListView: View {
             LazyVStack(spacing: 5) {
                 
                 if songListViewModel.songs.count > 0 {
-                    SectionHeaderView(title: "Songs") {
+                    SectionHeaderView(title: AppConstents.songs) {
                         SongListView(viewModel: songListViewModel)
                     }
                     .padding(.top)
@@ -30,7 +30,7 @@ struct SearchAllListView: View {
                 }
                 
                 if albumListViewModel.albums.count > 0 {
-                    SectionHeaderView(title: "Albums") {
+                    SectionHeaderView(title: AppConstents.album) {
                         AlbumListView(viewModel: albumListViewModel)
                     }
                     
@@ -41,7 +41,7 @@ struct SearchAllListView: View {
                 }
                 
                 if movieListViewModel.movies.count > 0 {
-                    SectionHeaderView(title: "Movies") {
+                    SectionHeaderView(title: AppConstents.movie) {
                         MovieListView(viewModel: movieListViewModel)
                     }
                     
@@ -51,35 +51,6 @@ struct SearchAllListView: View {
         }
     }
 }
-
-
-struct SectionHeaderView<Destination>: View where Destination : View {
-    
-    let title: String
-    let destination:  () -> Destination
-    
-    init(title: String, @ViewBuilder destination: @escaping () -> Destination) {
-        self.title = title
-        self.destination = destination
-    }
-    
-    var body: some View {
-        HStack {
-            Text(title)
-                .font(.title2)
-            Spacer()
-            
-            NavigationLink(destination: destination) {
-                HStack {
-                    Text("See all")
-                    Image(systemName: "chevron.right")
-                }
-            }
-        }
-        .padding(.horizontal)
-    }
-}
-
 
 struct SearchAllListView_Previews: PreviewProvider {
     static var previews: some View {

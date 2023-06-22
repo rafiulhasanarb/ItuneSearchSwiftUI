@@ -11,16 +11,12 @@ struct MovieSectionView: View {
     
     let movies: [Movie]
     
-    var body: some View {
-        
+    var body: some View {        
         ScrollView(.horizontal) {
             LazyHStack(alignment: .top, spacing: 0) {
                 ForEach(movies) { movie in
-                    
                     VStack(alignment: .leading) {
-                        
                         ImageLoadingView(urlString: movie.artworkUrl100, size: 100)
-                        
                         Text(movie.trackName)
                         Text(movie.primaryGenreName)
                             .foregroundColor(Color.gray)
@@ -31,7 +27,6 @@ struct MovieSectionView: View {
                 }
             }
             .padding([.horizontal, .bottom])
-            
         }
     }
 }
